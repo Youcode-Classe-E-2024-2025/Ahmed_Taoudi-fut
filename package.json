@@ -3,6 +3,7 @@
     "tailwindcss": "^3.4.15"
   },
   "scripts": {
-    "dev" :"npx tailwindcss -i ./assets/css/tailwind/input.css -o ./assets/css/tailwind/output.css --watch"
+    "dev" :"npx tailwindcss -i ./assets/css/tailwind/input.css -o ./assets/css/tailwind/output.css --watch",
+    "sts" :"git rm -r --cached assets/css/tailwind && git status"
   }
 }
