@@ -1,5 +1,6 @@
 console.log("aaaaaa");
-fetch("/assts/data/players.json")
+let list =[]
+fetch("/assets/data/players.json")
 .then(rep => {
     if(!rep.ok){
         console.error(`HTTP error! Status: ${rep.status}`);
@@ -9,8 +10,14 @@ fetch("/assts/data/players.json")
 })
 .then( data =>{
    if(data){ console.log(data);
+    list =data.players;
+console.log("list",list);
     dispalyPlayers(data)
    }
 }
 )
 .catch(err => console.error("error de fetch ",err))
+
+function dispalyPlayers(data){
+
+}
