@@ -22,7 +22,9 @@ function dispalyPlayers(list){
 
 
     let cart ; 
+    let test;
     list.forEach(plyr => { 
+        if(plyr.position!="GK"){test=1; }else{ test=0;}
         cart = document.createElement("div");
         cart.className="cart w-full "
         cart.innerHTML=`
@@ -33,39 +35,39 @@ function dispalyPlayers(list){
                   <ul class="flex  w-[75%] justify-between">
                     
                     <li >
-                        <p class="   p-0 text-[2vw] sm:text-[0.5rem] lh">${"PAC"}
+                        <p class="   p-0 text-[2vw] sm:text-[0.5rem] lh">${test?"PAC":"DIV"}
                             <br>
-                            <span class="text-[2.5vw] sm:text-[0.5rem]">${plyr.pace}</span>
+                            <span class="text-[2.5vw] sm:text-[0.5rem]"> ${test ? plyr.pace:plyr.diving}</span>
                         </p>
                     </li>
                     <li>
-                        <p class="   p-0 text-[2vw] sm:text-[0.5rem] lh">SHO
+                        <p class="   p-0 text-[2vw] sm:text-[0.5rem] lh">${test?"SHO":"HAN"}
                             <br>
-                            <span class="text-[2.5vw] sm:text-[0.5rem]">${plyr.shooting}</span>
+                            <span class="text-[2.5vw] sm:text-[0.5rem]">${test ? plyr.shooting:plyr.handling}</span>
                         </p>    
                     </li>
                     <li>
-                        <p class="   p-0 text-[2vw] sm:text-[0.5rem] lh">DRI
+                        <p class="   p-0 text-[2vw] sm:text-[0.5rem] lh">${test?"DRI":"KIC"}
                             <br>
-                            <span class="text-[2.5vw] sm:text-[0.5rem]">${plyr.dribbling}</span>
+                            <span class="text-[2.5vw] sm:text-[0.5rem]">${test ?plyr.dribbling:plyr.kicking}</span>
                         </p>    
                     </li>
                     <li>
-                        <p class="   p-0 text-[2vw] sm:text-[0.5rem] lh">PAS
+                        <p class="   p-0 text-[2vw] sm:text-[0.5rem] lh">${test?"PAS":"REF"}
                             <br>
-                            <span class="text-[2.5vw] sm:text-[0.5rem]">${plyr.passing}</span>
+                            <span class="text-[2.5vw] sm:text-[0.5rem]">${test ?plyr.passing:plyr.reflexes}</span>
                         </p>    
                     </li>
                     <li>
-                        <p class="   p-0 text-[2vw] sm:text-[0.5rem] lh">DEF
+                        <p class="   p-0 text-[2vw] sm:text-[0.5rem] lh">${test?"DEF":"SPE"}
                             <br>
-                            <span class="text-[2.5vw] sm:text-[0.5rem]">${plyr.defending}</span>
+                            <span class="text-[2.5vw] sm:text-[0.5rem]">${test ?plyr.defending:plyr.speed}</span>
                         </p>    
                     </li>
                     <li>
-                        <p class="   p-0 text-[2vw] sm:text-[0.5rem] lh">PHY
+                        <p class="   p-0 text-[2vw] sm:text-[0.5rem] lh">${test?"PHY":"POS"}
                             <br>
-                            <span class="text-[2.5vw] sm:text-[0.5rem]">${plyr.physical}</span>
+                            <span class="text-[2.5vw] sm:text-[0.5rem]">${test ?plyr.physical:plyr.positioning}</span>
                         </p>    
                     </li>
                   </ul>
