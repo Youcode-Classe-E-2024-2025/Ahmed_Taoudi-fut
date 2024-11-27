@@ -3,18 +3,18 @@ let test;
 export function createCArt(plyr){
     if(plyr.position!="GK"){test=1; }else{ test=0;}
     cart = document.createElement("div");
-    cart.className="cart w-full "
+    cart.className="relative hover:scale-105  w-full "
     cart.innerHTML=`
        <img class="w-full" src="./assets/img/badge_gold.webp" alt="">
             <div class="w-full h-full flex flex-col items-center justify-center  absolute right-0 top-0 ">
              <div class="w-full  ">
        <img class="mx-auto w-2/3"  src="${plyr.photo}" alt="photo of ${plyr.name}">
-       <p class=" absolute top-[25%] left-[15%]   p-0 text-[2vw] sm:text-[0.5rem] font-semibold ">${plyr.position}
+       <p class=" absolute top-[25%] left-[12%]   p-0 text-[2vw] sm:text-[.8rem] font-semibold ">${plyr.position}
         <br>
         <span class="text-[4vw] sm:text-[1rem] font-extrabold">${ plyr.rating}</span>
     </p>
    </div>
-            <p class="font-semibold text-[3vw]  sm:text-[0.8rem] ">${plyr.name}</p>
+            <p class="font-semibold text-[3vw]  sm:text-[0.68rem] ">${plyr.name}</p>
               <ul class="flex px-2  w-[75%] justify-between">
                 
                 <li >
@@ -62,7 +62,24 @@ export function createCArt(plyr){
         <img class="w-full" src="${plyr.flag}" alt="${plyr.nationality}">
     </div>
    </div>
-            </div> `
-    document.getElementById('playerList').append(cart);
+            </div> `;
+            return cart;
+   
+}
+export function createCartForTerrain(plyr){
+    if(plyr.position!="GK"){test=1; }else{ test=0;}
+    cart = document.createElement("div");
+   
+    cart.innerHTML=`
+                <div class="relative ">
 
+                        <img src="./assets/img/badge_gold.webp" alt="player">
+                        <div  class="player-img absolute top-[10%] right-0  w-full">
+                            <img class="mx-auto w-4/5" src="${plyr.photo}" alt="">
+                        </div>
+                 </div>
+                 `;
+                 return cart;
+                 //  <p class="text-white  font-semibold text-[.6rem]" >${plyr.name}</p>
+                 
 }
