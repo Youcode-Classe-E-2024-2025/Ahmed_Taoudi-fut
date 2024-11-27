@@ -51,4 +51,16 @@ export const formations={
    
 }
 
+export function changeFormation(frm){
+    positionsInTerrain.forEach(cart => {
+        changePositionOfPlayer(cart,frm)
+        // console.log(Number(cart.dataset.plyr));
+        
+    });
+}
 
+export function changePositionOfPlayer(cart,frm){
+    cart.style.top=formations[frm][cart.dataset.plyr].top
+    cart.style.left=formations[frm][cart.dataset.plyr].left
+    // cart.style.left='z' 
+ }

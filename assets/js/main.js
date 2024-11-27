@@ -1,5 +1,5 @@
 import { createCArt } from "./modules/playerCart.js";
-import {  formations, positionsInTerrain } from "./modules/positions.js";
+import {  changeFormation } from "./modules/positions.js";
 
 console.log("aaaaaa");
 let list =[]
@@ -33,22 +33,12 @@ function addPlayerToTerrain(ev){
 // console.log('eeeeeeee');
 }
 
- function changePositionOfPlayer(cart,frm){
-    cart.style.top=formations[frm][cart.dataset.plyr].top
-    cart.style.left=formations[frm][cart.dataset.plyr].left
-    // cart.style.left='z' 
- }
 
 
-function changeFormation(frm){
-    positionsInTerrain.forEach(cart => {
-        changePositionOfPlayer(cart,frm)
-        // console.log(Number(cart.dataset.plyr));
-        
-    });
-}
 
-console.log(positionsInTerrain[1-1]);
+
+
+// console.log(positionsInTerrain[1-1]);
 
 const formationInput = document.getElementById('formation');
 formationInput.addEventListener('change',()=>changeFormation(formationInput.value))
