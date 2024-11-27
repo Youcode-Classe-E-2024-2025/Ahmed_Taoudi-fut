@@ -32,7 +32,7 @@ function dispalyPlayers(list){
                 <div class="w-full h-full flex flex-col items-center justify-center  absolute right-0 top-0 ">
                  <div class="w-full  ">
            <img class="mx-auto w-2/3"  src="${plyr.photo}" alt="photo of ${plyr.name}">
-           <p class=" absolute top-[25%] left-[15%]   p-0 text-[2vw] sm:text-[0.5rem] font-semibold ">RAT
+           <p class=" absolute top-[25%] left-[15%]   p-0 text-[2vw] sm:text-[0.5rem] font-semibold ">${plyr.position}
             <br>
             <span class="text-[4vw] sm:text-[1rem] font-extrabold">${ plyr.rating}</span>
         </p>

@@ -1,0 +1,52 @@
+
+.terrain{
+    transform: rotateX(30deg);
+}
+
+#player-1{
+    top: 20%;
+    left: 20%;
+}
+#player-2{
+    top: 20%;
+    left: 50%;
+}
+#player-3{
+    top: 20%;
+    left: 80%;
+}
+#player-4{
+    top: 50%;
+    left: 20%;
+}
+#player-5{
+    top: 50%;
+    left: 50%;
+}
+#player-6{
+    top: 50%;
+    left: 80%;
+}
+#player-7{
+    top: 70%;
+    left: 20%;
+}
+#player-8{
+    top: 70%;
+    left: 40%;
+}
+#player-9{
+    top: 70%;
+    left: 60%;
+}
+#player-10{
+    top: 70%;
+    left: 80%;
+}
+#player-11{
+    bottom: 0;
+    left: 50%;
+}
+.anime-cart{
+    transition: top .5s ease, left .5s ease;
+}
