@@ -1,3 +1,4 @@
+import { dispalyPlayers } from "./modules/CRUD.js";
 import { createCArt, createCartForTerrain } from "./modules/playerCart.js";
 import {  changeFormation } from "./modules/positions.js";
 
@@ -18,19 +19,16 @@ fetch("/assets/data/players.json")
     localStorage.setItem('FUT-players', JSON.stringify(list));
    }
     // console.log("list",list);
+
     dispalyPlayers(list);
-    enventHandle();
-   }
+}
 }
 )
 .catch(err => console.error("error de fetch ",err))
 
-function dispalyPlayers(list){
+enventHandle();
 
 
-    
-    list.forEach(plyr =>  document.getElementById('playerList').append(createCArt(plyr)));
-}
 
 function enventHandle(){
     const btns = document.querySelectorAll('.btn-add-to-terrain')
