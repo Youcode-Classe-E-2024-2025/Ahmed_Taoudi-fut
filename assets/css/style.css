@@ -5,23 +5,23 @@
 
 #player-1{
     top: 20%;
-    left: 20%;
+    left: 30%;
 }
 #player-2{
     top: 20%;
-    left: 50%;
+    left: 70%;
 }
 #player-3{
-    top: 20%;
-    left: 80%;
-}
-#player-4{
     top: 50%;
     left: 20%;
 }
+#player-4{
+    top: 50%;
+    left: 40%;
+}
 #player-5{
     top: 50%;
-    left: 50%;
+    left: 60%;
 }
 #player-6{
     top: 50%;
@@ -44,7 +44,7 @@
     left: 80%;
 }
 #player-11{
-    bottom: 0;
+    top: 90%;
     left: 50%;
 }
 .anime-cart{

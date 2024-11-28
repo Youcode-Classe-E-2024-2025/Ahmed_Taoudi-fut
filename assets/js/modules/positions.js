@@ -19,11 +19,11 @@ export const positionsInTerrain= [
 
 export const formations={
     "4-3-3" : {
-        "1":{top:"20%",left:"20%"},
-        "2":{top:"20%",left:"50%"},
-        "3":{top:"20%",left:"80%"},
+        "1":{top:"20%",left:"20%"},//LW
+        "2":{top:"20%",left:"50%"}, //ST
+        "3":{top:"20%",left:"80%"}, // RW
 
-        "4":{top:"50%",left:"20%"},
+        "4":{top:"50%",left:"20%"},//..
         "5":{top:"50%",left:"50%"},
         "6":{top:"50%",left:"80%"},
 
@@ -31,7 +31,7 @@ export const formations={
         "8":{top:"70%",left:"40%"},
         "9":{top:"70%",left:"60%"},
         "10":{top:"70%",left:"80%"},
-        "11":{top:"90%",left:"50%"} 
+        "11":{top:"90%",left:"50%"}  // GK
     },
     
     "4-4-2" :{
@@ -47,16 +47,33 @@ export const formations={
         "9":{top:"70%",left:"60%"},
         "10":{top:"70%",left:"80%"},
         "11":{top:"90%",left:"50%"} 
-    }
+    },
+    "4-4-2-Diamond": {
+    "1": { top: "20%", left: "30%" }, 
+    "2": { top: "20%", left: "70%" },  
+
+    "3": { top: "50%", left: "20%" },  
+    "4": { top: "40%", left: "50%" }, 
+    "5": { top: "55%", left: "50%" }, 
+
+    "6": { top: "50%", left: "80%" },   
+    "7":{top:"70%",left:"20%"},
+    "8":{top:"75%",left:"40%"},
+    "9":{top:"75%",left:"60%"},
+    "10":{top:"70%",left:"80%"},
+    "11":{top:"90%",left:"50%"}   
+}
    
 }
 
 export function changeFormation(frm){
-    positionsInTerrain.forEach(cart => {
-        changePositionOfPlayer(cart,frm)
-        // console.log(Number(cart.dataset.plyr));
-        
-    });
+    if(formations.hasOwnProperty(frm)){
+        positionsInTerrain.forEach(cart => {
+            changePositionOfPlayer(cart,frm)
+            // console.log(Number(cart.dataset.plyr));
+            
+        });
+    }
 }
 
 export function changePositionOfPlayer(cart,frm){

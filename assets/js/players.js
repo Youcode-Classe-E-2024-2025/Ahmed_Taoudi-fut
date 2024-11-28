@@ -1,5 +1,5 @@
 import { createCArt } from "./modules/playerCart.js";
-import { dispalyPlayers, displayDetails, getData, removeFromList } from "./modules/CRUD.js";
+import { dispalyPlayers, displayDetails, getData, getDataEdit, removeFromList } from "./modules/CRUD.js";
 let list = JSON.parse(localStorage.getItem('FUT-players')) || [];
 
 dispalyPlayers(list,'playerList2')
@@ -47,6 +47,14 @@ ev.preventDefault();
 window.editHandler = function(ev){
     ev.preventDefault();
     const newdata =getDataEdit()
+    console.log(newdata);
+    list = JSON.parse(localStorage.getItem('FUT-players')) || []; 
+    const index = list.findIndex(pl=>pl.id===newdata.id);
+    // console.log("old",index,list);
+    list.splice(index,1,newdata);
+    // console.log("new",index,list);
+    localStorage.setItem('FUT-players',JSON.stringify(list))
+    dispalyPlayers(list,'playerList2')
     
 }
 
