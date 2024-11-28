@@ -3,8 +3,22 @@ let test;
 export function createCArt(plyr){
     if(plyr.position!="GK"){test=1; }else{ test=0;}
     cart = document.createElement("div");
-    cart.className="relative hover:scale-105  w-full "
+    cart.className="p-cart relative hover:scale-105  w-full "
+    cart.dataset.id=`${plyr.id}`;
     cart.innerHTML=`
+     <div class="absolute z-20 top-[20%] right-[0%]  flex gap-4 flex-col">
+        <button onclick="deletePlayer(event)" data-playerid="${plyr.id}" type="button">
+              <svg class="size-4 fill-white hover:fill-red-500 hover:scale-105 " data-slot="icon" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path clip-rule="evenodd" d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16ZM8.28 7.22a.75.75 0 0 0-1.06 1.06L8.94 10l-1.72 1.72a.75.75 0 1 0 1.06 1.06L10 11.06l1.72 1.72a.75.75 0 1 0 1.06-1.06L11.06 10l1.72-1.72a.75.75 0 0 0-1.06-1.06L10 8.94 8.28 7.22Z" fill-rule="evenodd"></path>
+              </svg>
+        </button>
+        <button onclick="updatePlayer(event)"  data-playerid="${plyr.id}" type="button">
+              <svg class="size-4 fill-white hover:fill-yellow-500 hover:scale-105 " data-slot="icon" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path d="m5.433 13.917 1.262-3.155A4 4 0 0 1 7.58 9.42l6.92-6.918a2.121 2.121 0 0 1 3 3l-6.92 6.918c-.383.383-.84.685-1.343.886l-3.154 1.262a.5.5 0 0 1-.65-.65Z"></path>
+                <path d="M3.5 5.75c0-.69.56-1.25 1.25-1.25H10A.75.75 0 0 0 10 3H4.75A2.75 2.75 0 0 0 2 5.75v9.5A2.75 2.75 0 0 0 4.75 18h9.5A2.75 2.75 0 0 0 17 15.25V10a.75.75 0 0 0-1.5 0v5.25c0 .69-.56 1.25-1.25 1.25h-9.5c-.69 0-1.25-.56-1.25-1.25v-9.5Z"></path>
+              </svg>
+      </button>
+    </div>
        <img class="w-full" src="./assets/img/badge_gold.webp" alt="">
             <div class="w-full h-full flex flex-col items-center justify-center  absolute right-0 top-0 ">
              <div class="w-full  ">
@@ -67,8 +81,11 @@ export function createCArt(plyr){
    
 }
 export function createCartForTerrain(plyr){
-    if(plyr.position!="GK"){test=1; }else{ test=0;}
+    
     cart = document.createElement("div");
+    cart.dataset.id=`${plyr.id}`;
+    // relative hover:scale-105  w-full
+    cart.className="p-cart"
    
     cart.innerHTML=`
                 <div class="relative ">
@@ -76,7 +93,8 @@ export function createCartForTerrain(plyr){
                         <img src="./assets/img/badge_gold.webp" alt="player">
                         <div  class="player-img absolute top-[10%] right-0  w-full">
                             <img class="mx-auto w-4/5" src="${plyr.photo}" alt="">
-                        </div>
+                            </div>
+                            <p class=" mx-[5%] font-semibold text-black  rounded bg-yellow-300 text-[0.5rem]  sm:text-[0.4rem] ">${plyr.name}</p>
                  </div>
                  `;
                  return cart;
