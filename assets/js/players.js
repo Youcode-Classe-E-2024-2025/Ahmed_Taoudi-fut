@@ -55,7 +55,7 @@ window.editHandler = function(ev){
     // console.log("new",index,list);
     localStorage.setItem('FUT-players',JSON.stringify(list))
     dispalyPlayers(list,'playerList2')
-    
+    closeModelForm();
 }
 
 //add

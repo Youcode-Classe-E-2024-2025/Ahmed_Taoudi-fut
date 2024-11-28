@@ -72,7 +72,7 @@ export function getData() {
     const nationality = document.getElementById('e-nationality').value;
     const club = document.getElementById('e-club').value;
     const logo = document.getElementById('e-logo').value;
-    const flag = document.getElementById('e-logo').flag;
+    const flag = document.getElementById('e-flag').value;
     const rating = parseInt(document.getElementById('e-rating').value, 10);
     const pace = parseInt(document.getElementById('e-pace').value, 10);
     const shooting = parseInt(document.getElementById('e-shooting').value, 10);
