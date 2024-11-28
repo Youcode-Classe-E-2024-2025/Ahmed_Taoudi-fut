@@ -20,6 +20,26 @@
 
             
     <main class="max-w-screen-xl mx-auto">
+        <div id="control" class="flex justify-center gap-3">
+            <div>
+                <select name="position-filter" id="position-filter"
+                class="mt-1 p-2 w-full border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
+                            <option value="-1">All player</option>
+                            <option value="RW">RW - Ailier Droit</option>
+                            <option value="LW">LW - Ailier Gauche</option>
+                            <option value="CF">CF - Attaquant Central</option>
+                            <option value="CAM">CAM - Milieu Offensif</option>
+                            <option value="CDM">CDM - Milieu Défensif</option>
+                            <option value="CB">CB - Défenseur Central</option>
+                            <option value="GK">GK - Gardien de but</option>
+                </select>
+            </div>
+            <div>
+           <button type="button" id="btn-add"
+                        class="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400">Add new Player</button>
+                   
+            </div>
+        </div>
         <div id="playerList2" class="grid grid-cols-2 gap-0  p-4  sm:p-6  sm:grid-cols-4 md:grid-cols-5 md:gap-6  lg:grid-cols-6 ">
             <!-- players -->
             
@@ -27,7 +47,7 @@
     </main>
 
     <div id="overlay"
-        class="overlay  transition-all duration-300  fixed top-0 left-0 w-screen h-screen z-50 bg-black/50  justify-center items-center p-8">
+        class="overlay hidden transition-all duration-300  fixed top-0 left-0 w-screen h-screen z-50 bg-black/50   p-6">
         <section id="modal-form" class=" absolute  h-fit w-11/12  sm:w-4/5  m-auto  top-0 left-0 right-0 bottom-0 ">
             <div class="m-auto bg-white shadow-lg rounded-lg   max-w-lg w-full p-6">
                 <h2 class="text-2xl font-semibold text-gray-800 text-center mb-6">Add new Player</h2>
@@ -127,9 +147,9 @@
                     </div>
     
                     <div class="flex gap-3  justify-end mt-4">
-                        <button type="button"
+                        <button type="button" id="btn-cancel"
                             class="bg-rose-500 text-white px-6 py-2 rounded-lg hover:bg-rose-600 focus:outline-none focus:ring-2 focus:ring-rose-400">Cancel</button>
-                        <button type="submit"
+                        <button type="submit" id="btn-submit-add"
                             class="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400">Submit</button>
                     </div>
                 </form>
