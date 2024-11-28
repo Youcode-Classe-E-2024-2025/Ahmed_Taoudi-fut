@@ -48,10 +48,10 @@
 
     <div id="overlay"
         class="overlay hidden transition-all duration-300  fixed top-0 left-0 w-screen h-screen z-50 bg-black/50   p-6">
-        <section onsubmit="addHandler(event)" id="modal-form" class=" absolute  h-fit w-11/12  sm:w-4/5  m-auto  top-0 left-0 right-0 bottom-0 ">
+        <section  id="modal-form-add" class=" absolute  h-fit w-11/12  sm:w-4/5  m-auto  top-0 left-0 right-0 bottom-0 ">
             <div class="m-auto bg-white shadow-lg rounded-lg   max-w-lg w-full p-6">
                 <h2 class="text-2xl font-semibold text-gray-800 text-center mb-6">Add new Player</h2>
-                <form id="form-add" action="">
+                <form onsubmit="addHandler(event)" id="form-add" action="">
     
                     <div class="mb-2">
                         <label for="name" class="block text-gray-600">Name of player</label>
@@ -97,13 +97,20 @@
                                 placeholder="Inter Miami">
                         </div>
                     </div>
-    
+                  <div class="mb-2 flex gap-2">
                     <div class="mb-2">
                         <label for="logo" class="block text-gray-600">logo of club</label>
                         <input type="url" id="logo" name="logo" required
                             class="mt-1 p-2 w-full border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                             placeholder="https://cdn.sofifa.net/meta/team/239235/120.png">
+                    </div> 
+                    <div>
+                        <label for="flag" class="block text-gray-600">flag</label>
+                        <input type="url" id="flag" name="flag" required
+                            class="mt-1 p-2 w-full border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+                            placeholder="https://cdn.sofifa.net/meta/flag/qq.png">
                     </div>
+                  </div>
     
                     <div class="mb-2">
                         <label for="rating" class="block text-gray-600">Rating</label>
@@ -156,10 +163,12 @@
             </div>
 
         </section>
-        <section onsubmit="editHandler(event)" id="modal-form-edit" class=" absolute  h-fit w-11/12  sm:w-4/5  m-auto  top-0 left-0 right-0 bottom-0 ">
+        <section  id="modal-form-edit" class=" absolute  h-fit w-11/12  sm:w-4/5  m-auto  top-0 left-0 right-0 bottom-0 ">
             <div class="m-auto bg-white shadow-lg rounded-lg   max-w-lg w-full p-6">
                 <h2 class="text-2xl font-semibold text-gray-800 text-center mb-6">Edit Player</h2>
-                <form id="form-edit" action="">
+                <form onsubmit="editHandler(event)" id="form-edit" action="">
+
+                    <input type="hidden" id="e-id" name="e-id">
     
                     <div class="mb-2">
                         <label for="e-name" class="block text-gray-600">Name of player</label>
@@ -206,11 +215,19 @@
                         </div>
                     </div>
     
-                    <div class="mb-2">
-                        <label for="e-logo" class="block text-gray-600">logo of club</label>
-                        <input type="url" id="e-logo" name="e-logo" required
-                            class="mt-1 p-2 w-full border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
-                            placeholder="https://cdn.sofifa.net/meta/team/239235/120.png">
+                    <div class="mb-2 flex gap-2">
+                        <div>
+                             <label for="e-logo" class="block text-gray-600">logo of club</label>
+                             <input type="url" id="e-logo" name="e-logo" required
+                                 class="mt-1 p-2 w-full border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+                                 placeholder="https://cdn.sofifa.net/meta/team/239235/120.png">
+                        </div>
+                        <div>
+                            <label for="e-flag" class="block text-gray-600">flag</label>
+                            <input type="url" id="e-flag" name="e-flag" required
+                                class="mt-1 p-2 w-full border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+                                placeholder="https://cdn.sofifa.net/meta/flag/qq.png">
+                       </div>
                     </div>
     
                     <div class="mb-2">
