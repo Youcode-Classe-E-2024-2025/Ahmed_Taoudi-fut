@@ -15,7 +15,23 @@ export const positionsInTerrain= [
 
 ]
 
-
+export const defaultFormation = {
+formation : '4-4-2',
+status:false,
+players : {
+        "1" :'noPlayer',
+        "2" :'noPlayer',  
+        "3" :'noPlayer',  
+        "4" :'noPlayer',
+        "5" :'noPlayer',
+        "6" :'noPlayer',
+        "7" :'noPlayer',
+        "8" :'noPlayer',
+        "9" :'noPlayer',
+        "10" :'noPlayer',
+        "11" :'noPlayer',  
+    },
+}
 
 export const formations={
     "4-3-3" : {
@@ -67,6 +83,7 @@ export const formations={
 }
 
 export function changeFormation(frm){
+    updateStyleFormation(frm);
     if(formations.hasOwnProperty(frm)){
         positionsInTerrain.forEach(cart => {
             changePositionOfPlayer(cart,frm)
@@ -81,3 +98,23 @@ export function changePositionOfPlayer(cart,frm){
     cart.style.left=formations[frm][cart.dataset.plyr].left
     // cart.style.left='z' 
  }
+
+ export function updateFormation( userFormation){
+    // let savedFormation = JSON.parse(localStorage.getItem('FUT-formation')) || defaultFormation ;
+    // savedFormation = userFormation ;
+    localStorage.setItem('FUT-formation',JSON.stringify(userFormation))
+
+ }
+
+ export function updatePlayerLocalStorage(cartNumber ,playerID){
+     let savedFormation = JSON.parse(localStorage.getItem('FUT-formation')) || defaultFormation ;
+     savedFormation.status=true;
+     savedFormation.players[cartNumber]=playerID;
+    localStorage.setItem('FUT-formation',JSON.stringify(savedFormation));
+ }
+function updateStyleFormation(newFormation){
+    let savedFormation = JSON.parse(localStorage.getItem('FUT-formation')) || defaultFormation ;
+    savedFormation.status=true;
+    savedFormation.formation = newFormation;
+    localStorage.setItem('FUT-formation',JSON.stringify(savedFormation));
+}
