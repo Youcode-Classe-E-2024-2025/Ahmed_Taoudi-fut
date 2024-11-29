@@ -24,13 +24,13 @@
         </div>
     </header>
     <main class="border max-w-screen-xl mx-auto">
-        <div class="grid mx-10 grid-cols-12 items-center">
+        <div class="grid mx-1 sm:mx-10 grid-cols-12 items-center">
             <!-- terrain -->
-            <div style=" perspective :2000px" class="h-full relative border  col-start-1 col-end-7">
+            <div style=" perspective :2000px" class="h-fit relative border col-start-1 -col-end-1  md:col-start-1 md:col-end-7">
                 <img class="terrain w-full bg-[#ffffff83]" src="./assets/img/field.svg" alt="">
                 <!-- justify-items-center  content-end    h-full  grid grid-cols-7  -->
                 <!-- <div class="absolute  top-0 right-0 w-full px-10 py-4 "> -->
-                  <div id="player-1" data-plyr="1"  class="cart-terrain anime-cart ">
+                  <div id="player-1" data-plyr="1"  data-pos="ST"  class="cart-terrain anime-cart ">
                     <button class="btn-add-to-terrain" type="button" >
                         <div class="w-10/12 mx-auto">
                           <img  src="./assets/img/placeHolder.svg" alt="player">
@@ -38,7 +38,7 @@
                        <p class="text-white">ST</p>
                     </button>
                   </div>
-                  <div id="player-2" data-plyr="2"  class="cart-terrain anime-cart ">
+                  <div id="player-2" data-plyr="2"  data-pos="ST"  class="cart-terrain anime-cart ">
                     <button class="btn-add-to-terrain" type="button" >
                         <div class="w-10/12 mx-auto">
                           <img  src="./assets/img/placeHolder.svg" alt="player">
@@ -47,7 +47,7 @@
 
                     </button>
                   </div>
-                  <div id="player-3" data-plyr="3"  class="cart-terrain anime-cart  ">
+                  <div id="player-3" data-plyr="3"  data-pos="LM"  class="cart-terrain anime-cart  ">
                     <button class="btn-add-to-terrain" type="button" >
                         <div class="w-10/12 mx-auto">
                           <img  src="./assets/img/placeHolder.svg" alt="player">
@@ -56,7 +56,7 @@
 
                     </button>
                   </div>
-                  <div id="player-4" data-plyr="4"  class="cart-terrain anime-cart ">
+                  <div id="player-4" data-plyr="4"  data-pos="CM"  class="cart-terrain anime-cart ">
                     <button class="btn-add-to-terrain" type="button" >
                         <div class="w-10/12 mx-auto">
                           <img  src="./assets/img/placeHolder.svg" alt="player">
@@ -65,7 +65,7 @@
 
                     </button>
                   </div>
-                  <div id="player-5" data-plyr="5"  class="cart-terrain anime-cart ">
+                  <div id="player-5" data-plyr="5"  data-pos="CM"  class="cart-terrain anime-cart ">
                     <button class="btn-add-to-terrain" type="button" >
                         <div class="w-10/12 mx-auto">
                           <img  src="./assets/img/placeHolder.svg" alt="player">
@@ -74,7 +74,7 @@
 
                     </button>
                   </div>
-                  <div id="player-6" data-plyr="6"  class="cart-terrain anime-cart  ">
+                  <div id="player-6" data-plyr="6"  data-pos="RM"  class="cart-terrain anime-cart  ">
                     <button class="btn-add-to-terrain" type="button" >
                         <div class="w-10/12 mx-auto">
                           <img  src="./assets/img/placeHolder.svg" alt="player">
@@ -83,7 +83,7 @@
 
                     </button>
                   </div>
-                  <div id="player-7" data-plyr="7"  class="cart-terrain anime-cart ">
+                  <div id="player-7" data-plyr="7"  data-pos="LB"  class="cart-terrain anime-cart ">
                     <button class="btn-add-to-terrain" type="button" >
                         <div class="w-10/12 mx-auto">
                           <img  src="./assets/img/placeHolder.svg" alt="player">
@@ -92,7 +92,7 @@
 
                     </button>
                   </div>
-                  <div id="player-8" data-plyr="8"  class="cart-terrain anime-cart  ">
+                  <div id="player-8" data-plyr="8"  data-pos="CB"  class="cart-terrain anime-cart  ">
                     <button class="btn-add-to-terrain" type="button" >
                         <div class="w-10/12 mx-auto">
                           <img  src="./assets/img/placeHolder.svg" alt="player">
@@ -101,7 +101,7 @@
 
                     </button>
                   </div>
-                  <div id="player-9" data-plyr="9"  class="cart-terrain anime-cart ">
+                  <div id="player-9" data-plyr="9"  data-pos="CB"  class="cart-terrain anime-cart ">
                     <button class="btn-add-to-terrain" type="button" >
                         <div class="w-10/12 mx-auto">
                           <img  src="./assets/img/placeHolder.svg" alt="player">
@@ -110,7 +110,7 @@
 
                     </button>
                   </div>
-                  <div id="player-10" data-plyr="10" class="cart-terrain anime-cart  ">
+                  <div id="player-10" data-plyr="10" data-pos="RB"  class="cart-terrain anime-cart  ">
                     <button class="btn-add-to-terrain" type="button" >
                         <div class="w-10/12 mx-auto">
                           <img  src="./assets/img/placeHolder.svg" alt="player">
@@ -119,7 +119,7 @@
 
                     </button>
                   </div>
-                  <div id="player-11" data-plyr="11" class="cart-terrain anime-cart ">
+                  <div id="player-11" data-plyr="11" data-pos="GK"  class="cart-terrain anime-cart ">
                     <button class="btn-add-to-terrain" type="button" >
                           <div class="w-10/12 mx-auto">
                             <img  src="./assets/img/placeHolder.svg" alt="player">
@@ -131,9 +131,9 @@
                 <!-- </div> -->
             </div>
             <!-- form -->
-            <div class="col-start-9 col-end-13  bg-white rounded-lg shadow-lg">
+            <div class="row-start-1 col-start-1 -col-end-1 md:col-start-8 md:col-end-13  bg-white rounded-lg shadow-lg">
                 <div class=" p-4 ">
-        <h1 class="text-3xl font-bold  text-center text-gray-700 mb-6">Soccer Game Formation </h1>
+                  <h1 class="text-3xl font-bold  text-center text-gray-700 mb-6">Soccer Game Formation </h1>
 
                     <form class="w-full  flex flex-col justify-ceter  gap-6"  action="">
                       <div class="space-y-4">
@@ -143,7 +143,7 @@
                              <input type="text" id="team-name" name="team-name" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter team name" required>
                           </div>
                         </div>
-                        <div class="mt-6">
+                        <div class="mt-2">
                           <label for="formation" class="block text-sm font-semibold text-gray-600">Select Formation:</label>
                           <select id="formation" name="formation" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required>
                               <option value="-1">Select Formation</option>
@@ -156,7 +156,7 @@
                           </select>
                       </div>
                          <!-- Tactics & Strategy -->
-                        <div class="mt-6 space-y-4">
+                        <div class="mt-2 space-y-4">
                           <div>
                               <label class="block text-sm font-semibold text-gray-600">Style of Play:</label>
                               <div  class=" w-full space-y-2">
@@ -181,7 +181,7 @@
                           </div>
                       </div>
                        <!-- Confirm and Save -->
-                      <div class="mt-6 flex justify-between">
+                      <div class="mt-2 flex justify-between">
                           <button type="submit" class="mx-auto px-6 py-2 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">Save</button>
                           <!-- <button type="button" class="px-6 py-2 bg-gray-500 text-white font-semibold rounded-md hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500">cancele </button> -->
                       </div>
