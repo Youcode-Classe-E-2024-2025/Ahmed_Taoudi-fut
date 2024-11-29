@@ -1,3 +1,4 @@
+import { createCartForTerrain } from "./playerCart.js";
 
 
 export const positionsInTerrain= [
@@ -14,6 +15,34 @@ export const positionsInTerrain= [
      document.getElementById("player-11")
 
 ]
+
+
+export function showFormation(savedFormation,list){
+    if(savedFormation.status){
+    
+     const carts = Object.entries(savedFormation.players);
+     // console.log(carts);
+     let cart;
+     for( const [cartNumber,playerID] of carts ){
+      if(playerID !== 'noPlayer') {
+         cart = document.getElementById(`player-${cartNumber}`)
+         const button = cart.querySelector('button');
+         const index = list.findIndex(plyr=>plyr.id==playerID);
+         button.dataset.status='1'
+         button.innerHTML='';
+         button.append(createCartForTerrain(list[index]));
+      }
+     }  
+    setTimeout(()=>{
+        document.getElementById('formation').value=savedFormation.formation
+        changeFormation(savedFormation.formation); 
+    },500)  
+    }else{
+     document.getElementById('formation').value="-1"
+     changeFormation('4-4-2');
+    }
+ }
+
 
 export const defaultFormation = {
 formation : '4-4-2',
