@@ -1,6 +1,6 @@
 /autre
 /node_modules
 package-lock.json
-/assets/css/tailwind
+# /assets/css/tailwind
 
 .vscode

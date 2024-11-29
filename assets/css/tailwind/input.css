@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components{
+.cart-terrain  {
+    @apply absolute -translate-x-1/2 -translate-y-1/2   opacity-95 hover:scale-125 hover:opacity-100   w-[10%]  
+}
+.cart  {
+    @apply relative hover:scale-105 w-full  
+}
+}
