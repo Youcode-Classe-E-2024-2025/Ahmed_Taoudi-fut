@@ -84,7 +84,8 @@ export function createCartForTerrain(plyr){
     
     cart = document.createElement("div");
     cart.dataset.id=`${plyr.id}`;
-    // relative hover:scale-105  w-full
+    cart.dataset.position=`${plyr.position}`;
+     
     cart.className="p-cart"
    
     cart.innerHTML=`
