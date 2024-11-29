@@ -28,9 +28,12 @@ export function showFormation(savedFormation,list){
          cart = document.getElementById(`player-${cartNumber}`)
          const button = cart.querySelector('button');
          const index = list.findIndex(plyr=>plyr.id==playerID);
+         
+         if(index != -1) {
          button.dataset.status='1'
          button.innerHTML='';
          button.append(createCartForTerrain(list[index]));
+        }
       }
      }  
     setTimeout(()=>{
