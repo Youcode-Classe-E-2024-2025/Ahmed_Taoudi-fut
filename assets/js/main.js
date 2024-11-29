@@ -1,6 +1,6 @@
 import { dispalyPlayers } from "./modules/CRUD.js";
 import { createCArt, createCartForTerrain } from "./modules/playerCart.js";
-import {  changeFormation , defaultFormation, updatePlayerLocalStorage } from "./modules/positions.js";
+import {  changeFormation , defaultFormation, showFormation, updatePlayerLocalStorage } from "./modules/positions.js";
 
 
 
@@ -22,7 +22,7 @@ fetch("/assets/data/players.json")
     localStorage.setItem('FUT-players', JSON.stringify(list));
    }
     // console.log("list",list);
-    showFormation();
+    showFormation(savedFormation,list);
     dispalyPlayers(list);
 }
 }
@@ -91,7 +91,7 @@ function replaceCart(cartTerrain,index,list){
      button.dataset.status='1'
      button.innerHTML='';
      button.append(createCartForTerrain(list[index]));
-    closeModel();
+     closeModel();
     return;
 
 }
