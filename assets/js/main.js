@@ -1,9 +1,12 @@
 import { dispalyPlayers } from "./modules/CRUD.js";
 import { createCArt, createCartForTerrain } from "./modules/playerCart.js";
-import {  changeFormation } from "./modules/positions.js";
+import {  changeFormation , defaultFormation, updatePlayerLocalStorage } from "./modules/positions.js";
+
+
 
 console.log("aaaaaa");
  let list =JSON.parse(localStorage.getItem('FUT-players')) || [];
+ let savedFormation = JSON.parse(localStorage.getItem('FUT-formation')) || defaultFormation ;
 fetch("/assets/data/players.json")
 .then(rep => {
     if(!rep.ok){
@@ -19,12 +22,14 @@ fetch("/assets/data/players.json")
     localStorage.setItem('FUT-players', JSON.stringify(list));
    }
     // console.log("list",list);
-
+    showFormation();
     dispalyPlayers(list);
 }
 }
 )
 .catch(err => console.error("error de fetch ",err))
+
+
 
 enventHandle();
 
@@ -38,7 +43,15 @@ function enventHandle(){
     document.querySelector('#modal-palyersList').addEventListener('click',(event)=>{event.stopPropagation();})
     
 }
-
+function ValidatePos(players,Pos){
+    players.forEach(plyr=> {
+        if(plyr.dataset.position==Pos){
+            plyr.classList.remove('hidden');
+        }else{
+            plyr.classList.add('hidden');
+        }
+    })
+}
 const overlay =document.getElementById('overlay');
 overlay.addEventListener('click',closeModel);
 
@@ -50,25 +63,32 @@ function openModel(ev){
     overlay.classList.add('flex')
 
     const players= overlay.querySelectorAll('.p-cart');
+    const selectedPos= ev.target.closest('.cart-terrain').dataset.pos;
+    const selectedCartNumber= ev.target.closest('.cart-terrain').dataset.plyr;
     const handler = (event)=>{
         // console.log("frfrfr",cartTerrain);
          cartTerrain = ev.target.closest('.cart-terrain');
-        console.log("fn",cartTerrain);
+        // console.log( "CART",cartTerrain.dataset);
+        // console.log("fn",cartTerrain);
         const cart = event.target.closest('.p-cart'); 
         const selctedPlayerIndex =list.findIndex(plyr=>plyr.id==cart.dataset.id) ;
+        updatePlayerLocalStorage(selectedCartNumber,cart.dataset.id);
         replaceCart(cartTerrain,selctedPlayerIndex,list);
 
-    }
+    } 
+    ValidatePos(players,selectedPos)
+
+
     players.forEach(plyrCArt=>plyrCArt.addEventListener('click',handler));
     window.handler = handler;
     // console.log(event.target.closest('.cart-terrain'));
 }
 function replaceCart(cartTerrain,index,list){ 
-    console.log("replace",cartTerrain);
+    // console.log("replace",cartTerrain);
 
 //    console.log( cart.querySelector('img'));
      const button = cartTerrain.querySelector('button');
-     
+     button.dataset.status='1'
      button.innerHTML='';
      button.append(createCartForTerrain(list[index]));
     closeModel();
