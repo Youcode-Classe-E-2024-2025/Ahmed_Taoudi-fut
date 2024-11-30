@@ -16,6 +16,16 @@ export const positionsInTerrain= [
 
 ]
 
+export function resetFormation(){
+    // console.log(confirm('do you want reset formation ?'));
+    if(confirm('do you want reset formation ?')){
+        localStorage.setItem('FUT-formation',JSON.stringify(defaultFormation));
+        location.reload()
+    }
+    
+
+}
+
 
 export function showFormation(savedFormation,list){
     if(savedFormation.status){

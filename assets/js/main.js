@@ -1,6 +1,6 @@
 import { dispalyPlayers } from "./modules/CRUD.js";
 import { createCArt, createCartForTerrain } from "./modules/playerCart.js";
-import {  changeFormation , defaultFormation, showFormation, updatePlayerLocalStorage } from "./modules/positions.js";
+import {  changeFormation , defaultFormation, resetFormation, showFormation, updatePlayerLocalStorage } from "./modules/positions.js";
 import { ValidatePos } from "./modules/validation.js";
 
 
@@ -111,3 +111,7 @@ function closeModel(){
 const formationInput = document.getElementById('formation');
 formationInput.addEventListener('change',()=>{
     if(formationInput.value !='-1'){changeFormation(formationInput.value);}})
+
+
+
+ document.getElementById('reset-formation').addEventListener("click",resetFormation)
