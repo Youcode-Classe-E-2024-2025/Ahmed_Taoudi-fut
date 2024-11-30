@@ -4,7 +4,7 @@
 
 @layer components{
 .cart-terrain  {
-    @apply absolute -translate-x-1/2 -translate-y-1/2   opacity-95 hover:scale-125 hover:opacity-100   w-[10%]  
+    @apply absolute -translate-x-1/2 -translate-y-1/2   sm:opacity-95 sm:hover:scale-150 sm:hover:opacity-100   w-[15%]  
 }
 .cart  {
     @apply relative hover:scale-105 w-full  

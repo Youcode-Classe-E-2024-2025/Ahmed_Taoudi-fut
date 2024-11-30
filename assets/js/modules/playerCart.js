@@ -92,6 +92,7 @@ export function createCartForTerrain(plyr){
                 <div class="relative ">
 
                         <img src="./assets/img/badge_gold.webp" alt="player">
+                        
                         <div  class="player-img absolute top-[10%] right-0  w-full">
                             <img class="mx-auto w-4/5" src="${plyr.photo}" alt="">
                             </div>
