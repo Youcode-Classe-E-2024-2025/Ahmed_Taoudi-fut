@@ -1,10 +1,11 @@
 import { dispalyPlayers } from "./modules/CRUD.js";
 import { createCArt, createCartForTerrain } from "./modules/playerCart.js";
 import {  changeFormation , defaultFormation, showFormation, updatePlayerLocalStorage } from "./modules/positions.js";
+import { ValidatePos } from "./modules/validation.js";
 
 
 
-console.log("aaaaaa");
+console.log("aaaaaa"); 
  let list =JSON.parse(localStorage.getItem('FUT-players')) || [];
  let savedFormation = JSON.parse(localStorage.getItem('FUT-formation')) || defaultFormation ;
 //   /assets/data/players.json
@@ -44,17 +45,11 @@ function enventHandle(){
     document.querySelector('#modal-palyersList').addEventListener('click',(event)=>{event.stopPropagation();})
     
 }
-function ValidatePos(players,Pos){
-    players.forEach(plyr=> {
-        if(plyr.dataset.position==Pos){
-            plyr.classList.remove('hidden');
-        }else{
-            plyr.classList.add('hidden');
-        }
-    })
-}
+
 const overlay =document.getElementById('overlay');
 overlay.addEventListener('click',closeModel);
+// 
+document.getElementById('btn-close-modul').addEventListener('click',closeModel)
 
 function openModel(ev){
     ev.preventDefault();
