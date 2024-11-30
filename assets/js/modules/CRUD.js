@@ -1,4 +1,4 @@
-import { createCArt, createCartForTerrain } from "./playerCart.js";
+import { createCArt, createCartForTerrainList } from "./playerCart.js";
 
 let list = JSON.parse(localStorage.getItem('FUT-players')) || [];
 
@@ -121,7 +121,7 @@ export function dispalyPlayers(list,zone ='playerList'){
 
     document.getElementById(zone).innerHTML='';
     if(zone=='playerList'){
-    list.forEach(plyr =>  document.getElementById(zone).append(createCartForTerrain(plyr)));
+    list.forEach(plyr =>  document.getElementById(zone).append(createCartForTerrainList(plyr)));
     }else{
     list.forEach(plyr =>  document.getElementById(zone).append(createCArt(plyr)));
     }

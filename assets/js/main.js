@@ -7,7 +7,8 @@ import {  changeFormation , defaultFormation, showFormation, updatePlayerLocalSt
 console.log("aaaaaa");
  let list =JSON.parse(localStorage.getItem('FUT-players')) || [];
  let savedFormation = JSON.parse(localStorage.getItem('FUT-formation')) || defaultFormation ;
-fetch("/assets/data/players.json")
+//   /assets/data/players.json
+fetch("https://tawdi.github.io/FUT-api/players.json")
 .then(rep => {
     if(!rep.ok){
         console.error(`HTTP error! Status: ${rep.status}`);

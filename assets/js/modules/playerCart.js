@@ -102,3 +102,30 @@ export function createCartForTerrain(plyr){
                  //  <p class="text-white  font-semibold text-[.6rem]" >${plyr.name}</p>
                  
 }
+// `
+// <li class="text-white  mb-2 flex items-stretch"><button class="btn-select-player flex justify-between p-1 px-8 sm:px-4 items-center cursor-pointer hover:bg-slate-800 w-full bg-slate-600 transition-colors flex-row text-2xl sm:text-[8px] lg:text-base xl:text-lg" data-name="${plyr.name}"><img class="w-20 sm:w-10" src="${plyr.photo}"/><span>${plyr.name.split(' ').slice(1)}</span> <span>${plyr.position}</span></button></li>
+// `
+export function createCartForTerrainList(plyr){
+    
+    cart = document.createElement("div");
+    cart.dataset.id=`${plyr.id}`;
+    cart.dataset.position=`${plyr.position}`;
+     
+    cart.className="p-cart h-20  bg-slate-500 hover:scale-101  m-1"
+   
+    cart.innerHTML=`
+                <div class="flex justify-between items-center ">
+ 
+                        <div  class="player-img   h-full">
+                            <img class=" border h-16 " src="${plyr.photo}" alt="${plyr.name}">
+                        </div> 
+                            <p class=" mx-[5%] font-semibold text-white   ">${plyr.name}</p>
+                            <p class=" mx-[5%] font-semibold text-white  ">${plyr.position}</p>
+
+                         
+                 </div>
+                 
+                 `;
+                 return cart;
+                 
+}
