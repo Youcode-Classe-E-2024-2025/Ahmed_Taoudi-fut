@@ -5,6 +5,7 @@ export function createCArt(plyr){
     cart = document.createElement("div");
     cart.className="p-cart relative hover:scale-105  w-full "
     cart.dataset.id=`${plyr.id}`;
+    cart.dataset.position=`${plyr.position}`;
     cart.innerHTML=`
      <div class="absolute z-20 top-[20%] right-[0%]  flex gap-4 flex-col">
         <button onclick="deletePlayer(event)" data-playerid="${plyr.id}" type="button">
@@ -92,7 +93,7 @@ export function createCartForTerrain(plyr){
                 <div class="relative ">
 
                         <img src="./assets/img/badge_gold.webp" alt="player">
-                        
+
                         <div  class="player-img absolute top-[10%] right-0  w-full">
                             <img class="mx-auto w-4/5" src="${plyr.photo}" alt="">
                             </div>
@@ -115,13 +116,16 @@ export function createCartForTerrainList(plyr){
     cart.className="p-cart h-20  bg-slate-500 hover:scale-101  m-1"
    
     cart.innerHTML=`
-                <div class="flex justify-between items-center ">
+                <div class="flex justify-between items-center p-2 ">
  
-                        <div  class="player-img   h-full">
-                            <img class=" border h-16 " src="${plyr.photo}" alt="${plyr.name}">
+                        <div  class="player-img   h-16">
+                            <img class=" object-cover border h-16 " src="${plyr.photo}" alt="${plyr.name}">
                         </div> 
-                            <p class=" mx-[5%] font-semibold text-white   ">${plyr.name}</p>
-                            <p class=" mx-[5%] font-semibold text-white  ">${plyr.position}</p>
+                            <p class="  font-semibold text-white   ">${plyr.name}</p>
+                       <div>
+                            <p class="  font-semibold text-white  ">${plyr.rating}</p>
+                            <p class="  font-semibold text-white  ">${plyr.position}</p>
+                       </div>
 
                          
                  </div>

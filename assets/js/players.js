@@ -1,7 +1,8 @@
 import { createCArt } from "./modules/playerCart.js";
 import { dispalyPlayers, displayDetails, getData, getDataEdit, removeFromList } from "./modules/CRUD.js";
 let list = JSON.parse(localStorage.getItem('FUT-players')) || [];
-
+const filterInput =document.getElementById('position-filter')
+filterInput.value="-1"
 dispalyPlayers(list,'playerList2')
 // console.log(d);
 document.addEventListener('DOMContentLoaded',()=>{
@@ -27,6 +28,8 @@ function closeModelForm(){
     document.getElementById('overlay').classList.add('hidden')
     document.getElementById('form-add').reset();
     document.getElementById('form-edit').reset();
+    filterInput.value="-1"
+
 }
 document.getElementById('btn-add').addEventListener('click',()=> {openModelForm()})
 // document.getElementById('btn-submit-add').addEventListener('',addHandler)
@@ -83,4 +86,22 @@ window.updatePlayer = (event)=>{
     displayDetails(selectedPlayerID);
 
 }
+// position-filter
+
+filterInput.addEventListener('change',filterByPosition)
+
+function filterByPosition(){
+    const carts=document.querySelectorAll(".p-cart");
+    carts.forEach(cart => {
+        if(filterInput.value==="-1"){
+            cart.classList.remove('hidden')
+        }
+       else if(cart.dataset.position === filterInput.value){
+            cart.classList.remove('hidden')
+        }else{
+            cart.classList.add('hidden')
+        }
+    })
+}
+
 // updatePlayerList(selectedPlayerID);
