@@ -1,4 +1,4 @@
-import { createCArt, createCartForTerrainList } from "./playerCart.js";
+import { createCArt, createCartForTerrainList, createPlaceHolder } from "./playerCart.js";
 
 let list = JSON.parse(localStorage.getItem('FUT-players')) || [];
 
@@ -125,4 +125,23 @@ export function dispalyPlayers(list,zone ='playerList'){
     }else{
     list.forEach(plyr =>  document.getElementById(zone).append(createCArt(plyr)));
     }
+}
+const details = document.querySelector('#model-details')
+export function showDetailsOfPlayer(id){
+  list = JSON.parse(localStorage.getItem('FUT-players')) || []; 
+  details.innerHTML='';
+  details.append(createCArt(list.find(pl=>pl.id==id)))
+  details.querySelector('#controll').classList.add('hidden')
+  // controll
+
+  
+}
+
+export function removePlayerFromTerrain(event){
+  // console.log(event.target.closest('.cart-terrain').dataset);
+  const cart = event.target.closest('.cart-terrain')
+  const button =cart.querySelector('button')
+  button.innerHTML=createPlaceHolder(cart.dataset.plyr,cart.dataset.pos);
+  // button.append(createPlaceHolder())
+
 }

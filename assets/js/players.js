@@ -31,11 +31,11 @@ function closeModelForm(){
     filterInput.value="-1"
 
 }
-document.getElementById('btn-add').addEventListener('click',()=> {openModelForm()})
+document.getElementById('btn-add').addEventListener('click',openModelForm)
 // document.getElementById('btn-submit-add').addEventListener('',addHandler)
  window.addHandler = function(ev){
     // alert("ok")
-ev.preventDefault();
+    ev.preventDefault();
     const newPlayer = getData();
     // console.log(newPlayer);
     list = JSON.parse(localStorage.getItem('FUT-players')) || []; 

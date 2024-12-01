@@ -1,4 +1,4 @@
-import { dispalyPlayers } from "./modules/CRUD.js";
+import { dispalyPlayers, removePlayerFromTerrain, showDetailsOfPlayer } from "./modules/CRUD.js";
 import { createCArt, createCartForTerrain } from "./modules/playerCart.js";
 import {  changeFormation , defaultFormation, resetFormation, showFormation, updatePlayerLocalStorage } from "./modules/positions.js";
 import { ValidatePos } from "./modules/validation.js";
@@ -36,13 +36,28 @@ fetch("https://tawdi.github.io/FUT-api/players.json")
 enventHandle();
 
 
-
 function enventHandle(){
+    const detailsZone = document.getElementById('zone-show-details')
     const btns = document.querySelectorAll('.btn-add-to-terrain')
     btns.forEach(btn=>{
-        btn.addEventListener('click',openModel)
+        btn.addEventListener('click',(event)=>{
+            if(event.target.closest('.show-Detial')){
+                //   console.log(event.target.dataset.playerid);
+                showDetailsOfPlayer(event.target.closest('.show-Detial').dataset.playerid);
+                detailsZone.classList.remove('hidden')
+                
+          }else if(event.target.closest('.reset-cart')){
+            removePlayerFromTerrain(event)
+          } else{
+            openModel(event);
+          }
+        })
+    })
+    detailsZone.addEventListener('click',()=>{
+        detailsZone.classList.add('hidden')
     })
     document.querySelector('#modal-palyersList').addEventListener('click',(event)=>{event.stopPropagation();})
+    
     
 }
 
