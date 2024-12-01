@@ -120,7 +120,7 @@ export function createCartForTerrain(plyr){
                  //  <p class="text-white  font-semibold text-[.6rem]" >${plyr.name}</p>
                  
 }
-export function createPlaceHolder(cartNumber,position){
+export function createPlaceHolder(position){
     cart =`
          <div class="w-10/12 mx-auto">
                <img  src="./assets/img/placeHolder.svg" alt="player">
