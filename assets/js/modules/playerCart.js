@@ -7,7 +7,7 @@ export function createCArt(plyr){
     cart.dataset.id=`${plyr.id}`;
     cart.dataset.position=`${plyr.position}`;
     cart.innerHTML=`
-     <div class="absolute z-20 top-[20%] right-[0%]  flex gap-4 flex-col">
+     <div id="controll" class="absolute z-20 top-[20%] right-[0%]  flex gap-4 flex-col">
         <button onclick="deletePlayer(event)" data-playerid="${plyr.id}" type="button">
               <svg class="size-4 fill-white hover:fill-red-500 hover:scale-105 " data-slot="icon" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                 <path clip-rule="evenodd" d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16ZM8.28 7.22a.75.75 0 0 0-1.06 1.06L8.94 10l-1.72 1.72a.75.75 0 1 0 1.06 1.06L10 11.06l1.72 1.72a.75.75 0 1 0 1.06-1.06L11.06 10l1.72-1.72a.75.75 0 0 0-1.06-1.06L10 8.94 8.28 7.22Z" fill-rule="evenodd"></path>
@@ -92,10 +92,26 @@ export function createCartForTerrain(plyr){
     cart.innerHTML=`
                 <div class="relative ">
 
+                        <div class="absolute w-full top-1 right-0 px-1 z-30  flex justify-between  ">
+                             <button type="button"  data-playerid="${plyr.id}" class="show-Detial rounded-full h-3 w-3 px-[2px] bg-green-400 text-white hover:bg-green-800  ">
+                                 <div class="sr-only">details</div>
+                                 <svg data-slot="icon" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                     <path d="M10 12.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z"></path>
+                                     <path clip-rule="evenodd" d="M.664 10.59a1.651 1.651 0 0 1 0-1.186A10.004 10.004 0 0 1 10 3c4.257 0 7.893 2.66 9.336 6.41.147.381.146.804 0 1.186A10.004 10.004 0 0 1 10 17c-4.257 0-7.893-2.66-9.336-6.41ZM14 10a4 4 0 1 1-8 0 4 4 0 0 1 8 0Z" fill-rule="evenodd"></path>
+                                 </svg>
+                             </button>
+                         
+                             <button type="button"  data-playerid="${plyr.id}" class="reset-cart  rounded-full h-3 w-3 px-[2px] bg-red-400 text-white hover:bg-red-800  ">
+                                 <div class="sr-only">details</div>
+                                 <svg data-slot="icon" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                   <path clip-rule="evenodd" d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16ZM8.28 7.22a.75.75 0 0 0-1.06 1.06L8.94 10l-1.72 1.72a.75.75 0 1 0 1.06 1.06L10 11.06l1.72 1.72a.75.75 0 1 0 1.06-1.06L11.06 10l1.72-1.72a.75.75 0 0 0-1.06-1.06L10 8.94 8.28 7.22Z" fill-rule="evenodd"></path>
+                                 </svg>
+                             </button>
+                        </div>
                         <img src="./assets/img/badge_gold.webp" alt="player">
 
                         <div  class="player-img absolute top-[10%] right-0  w-full">
-                            <img class="mx-auto w-4/5" src="${plyr.photo}" alt="">
+                            <img class="mx-auto w-4/5" src="${plyr.photo}" alt="${plyr.name}">
                             </div>
                             <p class=" mx-[5%] font-semibold text-black  rounded bg-yellow-300 text-[0.5rem]  sm:text-[0.4rem] ">${plyr.name}</p>
                  </div>
@@ -104,9 +120,16 @@ export function createCartForTerrain(plyr){
                  //  <p class="text-white  font-semibold text-[.6rem]" >${plyr.name}</p>
                  
 }
-// `
-// <li class="text-white  mb-2 flex items-stretch"><button class="btn-select-player flex justify-between p-1 px-8 sm:px-4 items-center cursor-pointer hover:bg-slate-800 w-full bg-slate-600 transition-colors flex-row text-2xl sm:text-[8px] lg:text-base xl:text-lg" data-name="${plyr.name}"><img class="w-20 sm:w-10" src="${plyr.photo}"/><span>${plyr.name.split(' ').slice(1)}</span> <span>${plyr.position}</span></button></li>
-// `
+export function createPlaceHolder(cartNumber,position){
+    cart =`
+         <div class="w-10/12 mx-auto">
+               <img  src="./assets/img/placeHolder.svg" alt="player">
+          </div>
+         <p class=" mx-[5%] font-semibold text-black  rounded bg-yellow-300 text-[0.5rem]  sm:text-[0.4rem] ">${position}</p>
+    `
+     
+    return cart
+}
 export function createCartForTerrainList(plyr){
     
     cart = document.createElement("div");
