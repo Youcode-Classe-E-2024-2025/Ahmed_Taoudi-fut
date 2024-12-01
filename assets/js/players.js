@@ -1,5 +1,6 @@
 import { createCArt } from "./modules/playerCart.js";
 import { dispalyPlayers, displayDetails, getData, getDataEdit, removeFromList } from "./modules/CRUD.js";
+import { validateValue } from "./modules/validation.js";
 let list = JSON.parse(localStorage.getItem('FUT-players')) || [];
 const filterInput =document.getElementById('position-filter')
 filterInput.value="-1"
@@ -31,26 +32,30 @@ function closeModelForm(){
     filterInput.value="-1"
 
 }
-document.getElementById('btn-add').addEventListener('click',openModelForm)
+document.getElementById('btn-add').addEventListener('click',()=>openModelForm('add'))
 // document.getElementById('btn-submit-add').addEventListener('',addHandler)
  window.addHandler = function(ev){
     // alert("ok")
     ev.preventDefault();
     const newPlayer = getData();
     // console.log(newPlayer);
+   if(validateValue(newPlayer.name)&&
+   validateValue(newPlayer.club)&&
+   validateValue(newPlayer.nationality))
+   {
     list = JSON.parse(localStorage.getItem('FUT-players')) || []; 
     list.push(newPlayer);
     localStorage.setItem('FUT-players',JSON.stringify(list))
     // window.location.reload();
     dispalyPlayers(list,'playerList2')
     // console.log("343434",ev);
-    closeModelForm();
+    closeModelForm();}
 }
 
 window.editHandler = function(ev){
     ev.preventDefault();
     const newdata =getDataEdit()
-    console.log(newdata);
+    // console.log(newdata);
     list = JSON.parse(localStorage.getItem('FUT-players')) || []; 
     const index = list.findIndex(pl=>pl.id===newdata.id);
     // console.log("old",index,list);
