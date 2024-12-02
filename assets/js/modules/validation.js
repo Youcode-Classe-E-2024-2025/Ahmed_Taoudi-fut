@@ -19,14 +19,15 @@ export function ValidatePos(players,Pos){
 }
 const regex = /^[A-Za-z][A-Za-z'\s-]*$/; // ahmed-tt :true    ahmed10 :false
 
-export function validateValue(value){
+export function validateValue(value,messageIndex){
     if (!regex.test(value)) {
-        console.log(value,false);
+        // console.log(value,false);
         // alert("Value should only contain letters, spaces, apostrophes, or hyphens!");
+        document.querySelector(`#${messageIndex}`).classList.remove('hidden');
         return false;
     }else{
         // console.log(value,true);
-
+        document.querySelector(`#${messageIndex}`).classList.add('hidden');
         // alert(value);
 
         return true;

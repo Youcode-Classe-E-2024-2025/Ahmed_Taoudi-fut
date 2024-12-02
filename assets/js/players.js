@@ -39,9 +39,9 @@ document.getElementById('btn-add').addEventListener('click',()=>openModelForm('a
     ev.preventDefault();
     const newPlayer = getData();
     // console.log(newPlayer);
-   if(validateValue(newPlayer.name)&&
-   validateValue(newPlayer.club)&&
-   validateValue(newPlayer.nationality))
+   if(validateValue(newPlayer.name,'message-name')&&
+   validateValue(newPlayer.club,'message-club')&&
+   validateValue(newPlayer.nationality,'message-nationality'))
    {
     list = JSON.parse(localStorage.getItem('FUT-players')) || []; 
     list.push(newPlayer);

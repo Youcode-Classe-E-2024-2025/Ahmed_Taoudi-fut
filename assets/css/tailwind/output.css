@@ -1094,6 +1094,10 @@ video {
   font-size: .6rem;
 }
 
+.text-\[0\.4rem\] {
+  font-size: 0.4rem;
+}
+
 .text-\[0\.5rem\] {
   font-size: 0.5rem;
 }
@@ -1122,6 +1126,14 @@ video {
 .text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem;
+}
+
+.text-\[0\.6rem\] {
+  font-size: 0.6rem;
+}
+
+.text-\[0\.7rem\] {
+  font-size: 0.7rem;
 }
 
 .font-bold {
@@ -1161,9 +1173,18 @@ video {
   color: rgb(31 41 55 / var(--tw-text-opacity, 1));
 }
 
+.text-red-500 {
+  --tw-text-opacity: 1;
+  color: rgb(239 68 68 / var(--tw-text-opacity, 1));
+}
+
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+}
+
+.text-\[0\.rem\] {
+  color: 0.rem;
 }
 
 .shadow-lg {
